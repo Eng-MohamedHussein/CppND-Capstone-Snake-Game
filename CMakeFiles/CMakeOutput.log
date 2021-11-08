@@ -621,3 +621,31 @@ make[1]: Leaving directory '/home/workspace/CppND-Capstone-Snake-Game/CMakeFiles
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_98d60/fast"
+/usr/bin/make -f CMakeFiles/cmTC_98d60.dir/build.make CMakeFiles/cmTC_98d60.dir/build
+make[1]: Entering directory '/home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_98d60.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_98d60.dir/CheckIncludeFile.c.o   -c /home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_98d60
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98d60.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_98d60.dir/CheckIncludeFile.c.o  -o cmTC_98d60 
+make[1]: Leaving directory '/home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_de738/fast"
+/usr/bin/make -f CMakeFiles/cmTC_de738.dir/build.make CMakeFiles/cmTC_de738.dir/build
+make[1]: Entering directory '/home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_de738.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_de738.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.13/Modules/CheckFunctionExists.c
+Linking C executable cmTC_de738
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de738.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_de738.dir/CheckFunctionExists.c.o  -o cmTC_de738 -lpthread 
+make[1]: Leaving directory '/home/workspace/CppND-Capstone-Snake-Game/CMakeFiles/CMakeTmp'
+
+

@@ -1,6 +1,8 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
+#include "SDL.h"
+#include "SDL2/SDL.h"
 #include <SDL2/SDL_ttf.h>
 
 
@@ -78,12 +80,12 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   }
 
   //TTF
-  if(TTF_Init=-1)
+  if(TTF_Init()==-1)
   {
     std::cerr << "TTF could not be created.\n";
     std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
   }
-  TTF_Font* Font1=TTF_OpenFont("../BodoniFLF-Roman.ttf",32)
+  TTF_Font* Font1=TTF_OpenFont("../BodoniFLF-Roman.ttf",32);
   if(nullptr==Font1)
   {
     std::cerr << "font1 could not be created.\n";
