@@ -228,6 +228,12 @@ SDL2_ttf_DIR:PATH=SDL2_ttf_DIR-NOTFOUND
 pkgcfg_lib_SDL2_SDL2:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2.so
 
 //Value Computed by CMake
+sdl2-ttf-sample_BINARY_DIR:STATIC=/home/workspace/CppND-Capstone-Snake-Game
+
+//Value Computed by CMake
+sdl2-ttf-sample_SOURCE_DIR:STATIC=/home/workspace/CppND-Capstone-Snake-Game
+
+//Value Computed by CMake
 shooter-cmake2_BINARY_DIR:STATIC=/home/workspace/CppND-Capstone-Snake-Game
 
 //Value Computed by CMake
@@ -415,7 +421,7 @@ SDL2IMAGE_STATIC_LIBS_L:INTERNAL=
 SDL2IMAGE_STATIC_LIBS_OTHER:INTERNAL=
 SDL2IMAGE_STATIC_LIBS_PATHS:INTERNAL=
 SDL2IMAGE_VERSION:INTERNAL=
-SDL2TTF_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;-lpthread;-lpthread;-lpthread
+SDL2TTF_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;/usr/lib/x86_64-linux-gnu/libSDL2_ttf.so;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread;-lpthread
 SDL2_CFLAGS:INTERNAL=-D_REENTRANT;-I/usr/include/SDL2
 SDL2_CFLAGS_I:INTERNAL=
 SDL2_CFLAGS_OTHER:INTERNAL=-D_REENTRANT

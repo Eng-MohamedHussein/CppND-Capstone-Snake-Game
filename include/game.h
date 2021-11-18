@@ -18,7 +18,8 @@ class Game {
 
  private:
   Snake snake;
-  Player player;
+  Player player_object;
+  
   
   SDL_Point food;
 

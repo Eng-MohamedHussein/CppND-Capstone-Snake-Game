@@ -17,6 +17,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/SDL2"
   "src"
+  "include"
   )
 
 # Targets to which this target links.

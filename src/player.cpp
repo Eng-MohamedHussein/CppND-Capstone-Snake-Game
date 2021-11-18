@@ -3,34 +3,31 @@
 #include "iostream"
 #include "renderer.h"
 #include "SDL.h"
+#include "SDL2/SDL_ttf.h"
 
-/*Player::player()=default;
-Player::~player() =default;*/
 
-void Player::GetName()
+Player::Player()
 {
-   std::string name="";
-   SDL_StartTextInput();
-   SDL_Event event;
-   while (SDL_PollEvent(&event))
-   {
-       if (event.type == SDL_QUIT) 
-       {
-            std::cerr << "Erorr in player.\n";
-        }
-      else if (event.type == SDL_TEXTINPUT) 
-      {
-          name += event.text.text;
-      }
-   }
-   SDL_StopTextInput();
+    name="Unknown";
+    score= 0;
+}
+Player::~Player(){}
 
+void Player::SetName (std::string playername) 
+{
+    name =playername;
+} 
+void Player::SetScore (int playerscore)
+{
+    score =playerscore;
 }
 
-void Player::DisplayName()
+std::string Player::GetName ()
 {
- 
-  
+    return name;
+}
 
-  
+int Player::GetScore ()
+{
+    return score;
 }
