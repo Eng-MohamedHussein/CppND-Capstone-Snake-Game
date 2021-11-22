@@ -13,7 +13,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
   PlaceFood();
 }
 
-void Game::Run(Controller const &controller, Renderer &renderer,
+void Game::Run(Controller const &controller, Renderer &renderer, Player &player,
                std::size_t target_frame_duration) {
   Uint32 title_timestamp = SDL_GetTicks();
   Uint32 frame_start;
@@ -22,10 +22,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
   
-  renderer.RenderInputText(player_object, running);
-  //SDL_Delay(2000);
+  
+  player.SetName(renderer.RenderInputText(running));
+  /*SDL_Delay(2000);
   std::cout<<"the player name is "<<player_object.GetName()<<std::endl;
-  std::cout<<"the player score is "<<player_object.GetScore()<<std::endl;
+  std::cout<<"the player score is "<<player_object.GetScore()<<std::endl;*/
   
 
   while (running) {
@@ -33,9 +34,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
-    Update();
+    Update(player);
     //std::cout<<"the player score is "<<player_object.GetScore()<<std::endl;
-    renderer.Render(snake, food, player_object);
+    renderer.Render(snake, food, player);
     //renderer.RenderPlayer(player_object);
 
     frame_end = SDL_GetTicks();
@@ -76,11 +77,11 @@ void Game::PlaceFood() {
   }
 }
 
-void Game::Update() {
+void Game::Update(Player &ply) {
   if (!snake.alive) return;
 
   snake.Update();
-  player_object.SetScore(score);
+  ply.SetScore(score);
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);

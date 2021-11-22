@@ -11,8 +11,8 @@
 class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height);
-  void Run(Controller const &controller, Renderer &renderer,
-           std::size_t target_frame_duration);
+  void Run(Controller const &controller, Renderer &renderer, Player &player,
+               std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
 
@@ -31,7 +31,7 @@ class Game {
   int score{0};
 
   void PlaceFood();
-  void Update();
+  void Update(Player &ply);
 };
 
 #endif

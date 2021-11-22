@@ -18,7 +18,7 @@ class Renderer
   void UpdateWindowTitle(int score, int fps);
   void RenderPlayerStatics(Player ply);
   void RenderLeader(Player ply);
-  void RenderInputText(Player &ply, bool & running);
+  std::string RenderInputText( bool & running);
 
  private:
   SDL_Window *sdl_window;

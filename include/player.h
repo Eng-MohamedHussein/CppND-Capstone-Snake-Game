@@ -8,6 +8,8 @@ class Player
 private:
     std::string name ="";
     int score;
+    
+    
 
 public:
     Player();
@@ -19,7 +21,10 @@ public:
     void SetName (std::string playername);
     void SetScore (int score);
     void UpdateLeaderBoard ();
+    void ReadLeadBoard();
 
+    int leaderscore;
+    std::string leadername;
 };
 
 #endif

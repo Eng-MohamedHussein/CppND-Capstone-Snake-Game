@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/controller.h
-snake.h
-../include/snake.h
-
-../include/game.h
-random
--
-SDL.h
-../include/SDL.h
-controller.h
-../include/controller.h
-renderer.h
-../include/renderer.h
-snake.h
-../include/snake.h
-player.h
-../include/player.h
-
 ../include/player.h
 string
 -
@@ -46,15 +28,27 @@ vector
 SDL.h
 ../include/SDL.h
 
-/home/workspace/CppND-Capstone-Snake-Game/src/game.cpp
-game.h
-/home/workspace/CppND-Capstone-Snake-Game/src/game.h
+/home/workspace/CppND-Capstone-Snake-Game/src/player.cpp
+string
+-
 iostream
 -
-SDL.h
-/home/workspace/CppND-Capstone-Snake-Game/src/SDL.h
+fstream
+-
+sstream
+-
+vector
+-
+algorithm
+-
 player.h
 /home/workspace/CppND-Capstone-Snake-Game/src/player.h
+renderer.h
+/home/workspace/CppND-Capstone-Snake-Game/src/renderer.h
+SDL.h
+/home/workspace/CppND-Capstone-Snake-Game/src/SDL.h
+SDL2/SDL_ttf.h
+/home/workspace/CppND-Capstone-Snake-Game/src/SDL2/SDL_ttf.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h

@@ -15,8 +15,13 @@ int main() {
   
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
+  Player player;
+  player.ReadLeadBoard();
+  std::cout << "Leader is " << player.leadername << "\n";
   Game game(kGridWidth, kGridHeight);
-  game.Run(controller, renderer, kMsPerFrame);
+  game.Run(controller, renderer,player, kMsPerFrame);
+  player.UpdateLeaderBoard();
+  
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
   std::cout << "Size: " << game.GetSize() << "\n";

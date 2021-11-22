@@ -169,8 +169,8 @@ void Renderer::RenderLeader(Player ply)
   
     SDL_Rect PlayerData_1;
     SDL_Rect PlayerData_2;
-    std::string playerName= "Leader \t" + ply.GetName();
-    std::string playerscore= "score \t"+ std::to_string(ply.GetScore());
+    std::string playerName= "Leader \t" + ply.leadername;
+    std::string playerscore= "score \t"+ std::to_string(ply.leaderscore);
 
      
     //TTF intialization and using to draw text to the screen
@@ -235,12 +235,11 @@ void Renderer::RenderLeader(Player ply)
 }
 
 
-void Renderer::RenderInputText(Player &ply, bool & running)
+std::string Renderer::RenderInputText( bool & running)
 {
   
-  //set drawing color for the next event
+  //set drawing color for the next event / clear the screen and update the window
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
-  // Clear the screen
   SDL_RenderClear(sdl_renderer);
   SDL_RenderPresent(sdl_renderer);
 
@@ -261,7 +260,7 @@ void Renderer::RenderInputText(Player &ply, bool & running)
       std::cerr << "font1 could not be created.\n";
       std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
   }
-  //intiating the font color 
+  //intiating the font colors 
   SDL_Color color1= {255,255,255,0};
   SDL_Color color2= {255,128,2,0};
 
@@ -280,19 +279,20 @@ void Renderer::RenderInputText(Player &ply, bool & running)
       std::cerr << "question_surface or question_texture could not be created.\n";
       std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
   }
+  //creating the space to display the question
   SDL_Rect questionRect;
   questionRect.w=question_surface->w;
   questionRect.h=question_surface->h;
   questionRect.x= (screen_width-question_surface->w )/2;
   questionRect.y= (screen_height/2);
   
-  //SDL_RenderPresent(sdl_renderer);
-
+  
+  //drwaing the question to the screen
   SDL_RenderCopy(sdl_renderer,question_texture,NULL,&questionRect);
   SDL_RenderPresent(sdl_renderer);
-  //Asking the user to input his/her name and storing it then render it to the screen
+  
 
-
+  //starting to get input from tha user and storing that
 
   SDL_StartTextInput();
   bool typing = true;
@@ -300,14 +300,18 @@ void Renderer::RenderInputText(Player &ply, bool & running)
   
   while ( typing ) {
     SDL_Event Input;
+    
     while ( SDL_PollEvent( &Input ) ) 
     {
+
+      // giving the user the abailtiy to end the game before or in time of typing his /her name
       if(Input.type== SDL_QUIT )
       {
         typing=false;
         running=false;
         break;
       }
+      //limiting the lengt of the player name
       else if ( Input.type == SDL_TEXTINPUT && in.length()<30 ) 
       {
         in += Input.text.text;
@@ -326,8 +330,36 @@ void Renderer::RenderInputText(Player &ply, bool & running)
         SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
         SDL_RenderClear(sdl_renderer);
 
-      } else if ( Input.type == SDL_KEYDOWN && Input.key.keysym.sym ==SDLK_RETURN) 
+      }
+      // accepting the entered name of the player 
+      else if ( Input.type == SDL_KEYDOWN && Input.key.keysym.sym ==SDLK_RETURN) 
       {
+        
+        //avoid breaking the loop without the updating the last event
+        // rendering the player name to the screen with each letter typed in or deleted
+        input_surface = TTF_RenderText_Solid(Font1,in.c_str(),color2);
+        SDL_RenderCopy(sdl_renderer,question_texture,NULL,&questionRect);
+        SDL_RenderPresent(sdl_renderer);
+        //entering the game without a name -> the default name will be used then
+        if (nullptr != input_surface)
+        {
+          SDL_Rect InputData_1;
+          InputData_1.w =input_surface->w;
+          InputData_1.h = input_surface->h;
+          InputData_1.x =(screen_width - input_surface->w)/2;
+          InputData_1.y =(questionRect.y + 2*input_surface->h);
+
+          
+          input_texture = SDL_CreateTextureFromSurface(sdl_renderer,input_surface);
+          
+          
+          SDL_RenderCopy(sdl_renderer,input_texture,NULL,&InputData_1);
+          SDL_RenderPresent(sdl_renderer);
+          //ply.SetName(in);
+        }
+        //if the user deleted the whole player name before entering the game
+        else{in="Unkown";}
+        //ply.SetName(in);
         typing = false;
         break;
       }
@@ -338,10 +370,11 @@ void Renderer::RenderInputText(Player &ply, bool & running)
       }
       
       
-      
+      // rendering the player name to the screen with each letter typed in or deleted
       input_surface = TTF_RenderText_Solid(Font1,in.c_str(),color2);
       SDL_RenderCopy(sdl_renderer,question_texture,NULL,&questionRect);
       SDL_RenderPresent(sdl_renderer);
+      //entering the game without a name -> the default name will be used then
       if (nullptr != input_surface)
       {
         SDL_Rect InputData_1;
@@ -356,7 +389,9 @@ void Renderer::RenderInputText(Player &ply, bool & running)
         
         SDL_RenderCopy(sdl_renderer,input_texture,NULL,&InputData_1);
         SDL_RenderPresent(sdl_renderer);
-        ply.SetName(in);
+        //ply.SetName(in);
+        
+        
       }
     }
     
@@ -370,6 +405,7 @@ void Renderer::RenderInputText(Player &ply, bool & running)
   SDL_DestroyTexture(question_texture);
   
   TTF_Quit();
+  return in.c_str();
 
 
 
