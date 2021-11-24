@@ -6,7 +6,7 @@
 class Player 
 {
 private:
-    std::string name ="";
+    std::string name ="Unknown";
     int score;
     
     

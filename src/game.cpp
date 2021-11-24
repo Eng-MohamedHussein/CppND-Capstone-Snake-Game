@@ -1,5 +1,6 @@
-#include "game.h"
 #include <iostream>
+#include <string>
+#include "game.h"
 #include "SDL.h"
 #include "player.h"
 
@@ -22,8 +23,11 @@ void Game::Run(Controller const &controller, Renderer &renderer, Player &player,
   int frame_count = 0;
   bool running = true;
   
-  
-  player.SetName(renderer.RenderInputText(running));
+  std::string temp =renderer.RenderInputText(running);
+  if (temp.size()>0)
+  {
+    player.SetName(temp);
+  }
   /*SDL_Delay(2000);
   std::cout<<"the player name is "<<player_object.GetName()<<std::endl;
   std::cout<<"the player score is "<<player_object.GetScore()<<std::endl;*/

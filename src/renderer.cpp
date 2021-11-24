@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "SDL.h"
 #include "SDL2/SDL_ttf.h"
 
@@ -311,10 +312,12 @@ std::string Renderer::RenderInputText( bool & running)
         running=false;
         break;
       }
+      
       //limiting the lengt of the player name
-      else if ( Input.type == SDL_TEXTINPUT && in.length()<30 ) 
+      else if ( Input.type == SDL_TEXTINPUT  &&in.length()<30 ) 
       {
         in += Input.text.text;
+        in.erase(std::remove_if(in.begin(), in.end(), ::isspace),in.end());
         
         std::cout << " > " << in << std::endl;// **************************************************************should be deleted by relase
         //resetting the screen to update text
@@ -358,7 +361,7 @@ std::string Renderer::RenderInputText( bool & running)
           //ply.SetName(in);
         }
         //if the user deleted the whole player name before entering the game
-        else{in="Unkown";}
+        //else{in=player.name;}
         //ply.SetName(in);
         typing = false;
         break;
