@@ -161,6 +161,7 @@ void Renderer::RenderPlayerStatics(Player ply)
     //Free resources
     SDL_FreeSurface(name_surface);
     SDL_DestroyTexture(name_texture);
+    TTF_CloseFont(Font1);
     TTF_Quit();
 }
 
@@ -232,6 +233,7 @@ void Renderer::RenderLeader(Player ply)
     //Free resources
     SDL_FreeSurface(name_surface);
     SDL_DestroyTexture(name_texture);
+    TTF_CloseFont(Font1);
     TTF_Quit();
 }
 
@@ -406,6 +408,7 @@ std::string Renderer::RenderInputText( bool & running)
   SDL_FreeSurface(question_surface);
   SDL_DestroyTexture(input_texture);
   SDL_DestroyTexture(question_texture);
+  TTF_CloseFont(Font1);
   
   TTF_Quit();
   return in.c_str();
