@@ -8,6 +8,8 @@ The Capstone Project gives you a chance to integrate what you've learned through
 
 In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
+The was extend with my contribution to acquire some more features like getting the player names and handling a leaderboard file in addition to display those date while playing to the screen
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
@@ -17,6 +19,9 @@ In this project, you can build your own C++ application or extend this Snake gam
   * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
 * SDL2 >= 2.0
   * All installation instructions can be found [here](https://wiki.libsdl.org/Installation)
+  >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
+* SDL2_TTF >= 2.0
+  * All installation instructions can be found [here](https://www.libsdl.org/projects/SDL_ttf/)
   >Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source. 
 * gcc/g++ >= 5.4
   * Linux: gcc / g++ is installed by default on most Linux distros
