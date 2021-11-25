@@ -16,7 +16,12 @@ Player::Player()
     name="Unknown";
     score= 0;
 }
-Player::~Player(){}
+Player::~Player()
+{
+    name="";
+    score=0;
+
+}
 
 void Player::SetName (std::string playername) 
 {
@@ -47,19 +52,19 @@ void Player::UpdateLeaderBoard ()
     std::vector<int> ExistedScores;
     
     //reading the board and exculding  the existed names to check whether the player is old one
-    std::ifstream stream("../include/assets/LeaderBoard.txt");
+    std::ifstream stream(LeaderBoardPath);
     if(stream.is_open())
     {
         while(std::getline(stream, line))
         {
             std::istringstream stringstream(line);
             stringstream>>key>>value;
-            std::cout<<key<<"\t"<<value<<std::endl;
+            //std::cout<<key<<"\t"<<value<<std::endl;
             if(key==name)
             {
                 OldName=key;
                 OldValue=value;
-                std::cout<<"Old name ist  ->"<<OldName<<std::endl;
+                //std::cout<<"Old name ist  ->"<<OldName<<std::endl;
             }
             else
             {
@@ -94,7 +99,7 @@ void Player::UpdateLeaderBoard ()
         ExistedNames.push_back(name);
         ExistedScores.push_back(score);
         //override the LeaderBoard
-        std::ofstream LeaderBoard("../include/assets/LeaderBoard.txt",std::ios::out);
+        std::ofstream LeaderBoard(LeaderBoardPath,std::ios::out);
     
         if(LeaderBoard.is_open())
         {
@@ -132,7 +137,8 @@ void Player::ReadLeadBoard()
     std::string key;
     std::string line;
     int value;
-    std::ifstream stream("../include/assets/LeaderBoard.txt");
+    //open the leader board file and copy all scores to a vector
+    std::ifstream stream(LeaderBoardPath);
     if(stream.is_open())
     {
         while(std::getline(stream,line))
@@ -142,8 +148,10 @@ void Player::ReadLeadBoard()
             scores.emplace_back(value);
         }
     }
+    //finding the highest score
     leaderscore= *max_element(scores.begin(),scores.end());
-    std::ifstream stream2("../include/assets/LeaderBoard.txt");
+    std::ifstream stream2(LeaderBoardPath);
+    //reopening the file to identify the highest score owner
     if(stream2.is_open())
     {
         while(std::getline(stream2,line))

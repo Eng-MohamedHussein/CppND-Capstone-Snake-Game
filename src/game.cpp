@@ -23,12 +23,15 @@ void Game::Run(Controller const &controller, Renderer &renderer, Player &player,
   int frame_count = 0;
   bool running = true;
   
+  //acepting a falid name or using the default name (Unkown)
   std::string temp =renderer.RenderInputText(running);
   if (temp.size()>0)
   {
     player.SetName(temp);
   }
-  /*SDL_Delay(2000);
+  /*
+  //TEST//
+  SDL_Delay(2000);
   std::cout<<"the player name is "<<player_object.GetName()<<std::endl;
   std::cout<<"the player score is "<<player_object.GetScore()<<std::endl;*/
   

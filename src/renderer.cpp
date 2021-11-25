@@ -56,6 +56,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Player const &pl
   // Clear the screen
   SDL_RenderClear(sdl_renderer);
   
+  //draw to screen the current player and the leader with their scores
   RenderPlayerStatics(ply);
   RenderLeader(ply);
 
@@ -93,7 +94,7 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }
 
-//Render the player details feld
+//Render the player details field
 void Renderer::RenderPlayerStatics(Player ply)
 {
   
@@ -412,8 +413,4 @@ std::string Renderer::RenderInputText( bool & running)
   
   TTF_Quit();
   return in.c_str();
-
-
-
-
 }

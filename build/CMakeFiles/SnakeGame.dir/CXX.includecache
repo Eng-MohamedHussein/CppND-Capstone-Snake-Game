@@ -28,15 +28,23 @@ vector
 SDL.h
 ../include/SDL.h
 
-/home/workspace/CppND-Capstone-Snake-Game/src/renderer.cpp
-renderer.h
-/home/workspace/CppND-Capstone-Snake-Game/src/renderer.h
+/home/workspace/CppND-Capstone-Snake-Game/src/player.cpp
+string
+-
 iostream
 -
-string
+fstream
+-
+sstream
+-
+vector
 -
 algorithm
 -
+player.h
+/home/workspace/CppND-Capstone-Snake-Game/src/player.h
+renderer.h
+/home/workspace/CppND-Capstone-Snake-Game/src/renderer.h
 SDL.h
 /home/workspace/CppND-Capstone-Snake-Game/src/SDL.h
 SDL2/SDL_ttf.h

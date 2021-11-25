@@ -7,6 +7,7 @@ class Player
 {
 private:
     std::string name ="Unknown";
+    std::string const LeaderBoardPath="../include/assets/LeaderBoard.txt";
     int score;
     
     
@@ -25,6 +26,7 @@ public:
 
     int leaderscore;
     std::string leadername;
+    
 };
 
 #endif
